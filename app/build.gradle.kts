@@ -52,6 +52,7 @@ dependencies {
     implementation(libs.androidx.constraintlayout)
     implementation(libs.androidx.fragmentKtx)
     implementation(libs.androidx.navigation.fragmentKtx)
+    implementation(libs.androidx.roomKtx)
 
     implementation(libs.jakewharton.timber)
     kapt(libs.androidx.hilt.compiler)
