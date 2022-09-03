@@ -25,14 +25,17 @@ class PetFilterDialog : BottomSheetDialogFragment() {
 
     private val view by viewLifecycle(PetFilterDialogBinding::bind)
     private val viewModel: PetFilterViewModel by viewModels()
-
-    private fun setupViews() = with(view) {
-
+    private val adapter by viewLifecycle {
+        PetFilterAdapter(onClick = { })
     }
 
-    private fun onState(state: List<PetType>) {
-        Timber.i("onState: $state")
+    private fun setupViews() = with(view) {
+        recyclerView.adapter = adapter
+    }
 
+    private fun onState(state: List<PetType>) = with(view) {
+        Timber.i("onState: $state")
+        adapter.submitList(state)
     }
 
     override fun onCreateView(
