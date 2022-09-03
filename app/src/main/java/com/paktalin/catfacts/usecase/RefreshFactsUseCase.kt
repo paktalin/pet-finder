@@ -4,7 +4,6 @@ import com.paktalin.catfacts.data.local.FactDao
 import com.paktalin.catfacts.data.remote.CatFactsService
 import com.paktalin.catfacts.mapping.toEntities
 import dagger.Reusable
-import timber.log.Timber
 import javax.inject.Inject
 
 @Reusable
@@ -12,8 +11,8 @@ class RefreshFactsUseCase @Inject constructor(
     private val catFactsService: CatFactsService,
     private val factDao: FactDao,
 ) {
-    suspend operator fun invoke() {
-        try {
+    suspend operator fun invoke(): Result {
+        return try {
             val response = catFactsService.getFacts()
             factDao.replaceFacts(response.toEntities())
             Result.Success

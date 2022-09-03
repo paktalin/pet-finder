@@ -6,6 +6,7 @@ import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import androidx.room.Transaction
 import com.paktalin.catfacts.data.local.entity.FactEntity
+import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface FactDao {
@@ -21,4 +22,7 @@ interface FactDao {
 
     @Query("DELETE FROM FactEntity")
     suspend fun deleteFacts()
+
+    @Query("SELECT * FROM FactEntity")
+    fun observeFacts(): Flow<List<FactEntity>>
 }
