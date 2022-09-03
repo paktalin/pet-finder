@@ -7,6 +7,8 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import com.paktalin.petfinder.R
 import com.paktalin.petfinder.databinding.PetListFragmentBinding
+import com.paktalin.petfinder.ui.pet.list.PetListAction.ShowError
+import com.paktalin.petfinder.ui.showError
 import com.paktalin.petfinder.utils.navigateUp
 import com.paktalin.petfinder.utils.viewLifecycle
 import dagger.hilt.android.AndroidEntryPoint
@@ -36,6 +38,9 @@ class PetListFragment : Fragment(R.layout.pet_list_fragment) {
 
     private fun onAction(action: PetListAction) {
         Timber.i("onAction: $action")
+        when (action) {
+            is ShowError -> showError(action.error)
+        }
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

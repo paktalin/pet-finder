@@ -6,6 +6,7 @@ import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFact
 import com.paktalin.petfinder.BuildConfig
 import com.paktalin.petfinder.data.local.ApplicationDb
 import com.paktalin.petfinder.data.local.PetDao
+import com.paktalin.petfinder.data.remote.PetFinderInterceptor
 import com.paktalin.petfinder.data.remote.PetFinderService
 import dagger.Module
 import dagger.Provides
@@ -26,8 +27,9 @@ object ApplicationModule {
 
     @Provides
     @Singleton
-    fun okHttpClient(): OkHttpClient {
+    fun okHttpClient(petFinderInterceptor: PetFinderInterceptor): OkHttpClient {
         return OkHttpClient.Builder()
+            .addInterceptor(petFinderInterceptor)
             .addInterceptor(
                 HttpLoggingInterceptor().apply { level = HttpLoggingInterceptor.Level.BODY }
             )

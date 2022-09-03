@@ -55,6 +55,7 @@ dependencies {
     implementation(libs.androidx.roomKtx)
     kapt(libs.androidx.room.compiler)
     implementation(libs.androidx.recyclerview)
+    implementation(libs.androidx.datastore.preferences)
 
     implementation(libs.jakewharton.timber)
     kapt(libs.androidx.hilt.compiler)

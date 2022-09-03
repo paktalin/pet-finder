@@ -4,6 +4,7 @@ import com.paktalin.petfinder.data.local.PetDao
 import com.paktalin.petfinder.data.remote.PetFinderService
 import com.paktalin.petfinder.mapping.toEntities
 import dagger.Reusable
+import timber.log.Timber
 import javax.inject.Inject
 
 @Reusable
