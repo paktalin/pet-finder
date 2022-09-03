@@ -11,12 +11,12 @@ import com.paktalin.petfinder.databinding.PetListItemBinding
 import com.paktalin.petfinder.model.Pet
 
 class PetAdapter(
-    private val onClick: (Pet) -> Unit
+    private val onClick: (id: Long) -> Unit
 ) : ListAdapter<Pet, PetViewHolder>(PetDiffCallback) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PetViewHolder {
         val inflater = LayoutInflater.from(parent.context)
-        val onClick = { position: Int -> onClick(getItem(position)) }
+        val onClick = { position: Int -> onClick(getItem(position).id) }
         return PetViewHolder(
             view = PetListItemBinding.inflate(inflater, parent, false),
             onClick = onClick
@@ -34,7 +34,7 @@ class PetViewHolder(
 ) : RecyclerView.ViewHolder(view.root) {
 
     init {
-        view.root.setOnClickListener { onClick(bindingAdapterPosition) }
+        view.cardView.setOnClickListener { onClick(bindingAdapterPosition) }
     }
 
     fun bind(item: Pet) = with(view) {

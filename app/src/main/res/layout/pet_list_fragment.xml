@@ -15,9 +15,10 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:title="@string/pet_list_title"
+            app:menu="@menu/pet_list_menu"
             app:navigationContentDescription="@string/back_button"
-            app:navigationIcon="?attr/homeAsUpIndicator" />
+            app:navigationIcon="?attr/homeAsUpIndicator"
+            app:title="@string/pet_list_title" />
 
     </com.google.android.material.appbar.AppBarLayout>
 

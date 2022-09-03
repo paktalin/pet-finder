@@ -4,4 +4,5 @@
     <string name="general_error">Oops! Something went wrong</string>
 
     <string name="pet_list_title">Pet list</string>
+    <string name="pet_list_filter">Filter</string>
 </resources>
