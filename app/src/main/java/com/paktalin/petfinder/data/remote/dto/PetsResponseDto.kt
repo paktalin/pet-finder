@@ -3,12 +3,12 @@ package com.paktalin.petfinder.data.remote.dto
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class FactsResponseDto(
-    val total: Int,
-    val data: List<FactDto>,
+data class PetsResponseDto(
+    val animals: List<PetDto>,
 )
 
 @Serializable
-data class FactDto(
-    val fact: String
+data class PetDto(
+    val id: Long,
+    val name: String
 )

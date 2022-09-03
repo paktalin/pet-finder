@@ -15,7 +15,7 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:title="@string/facts_list_title"
+            app:title="@string/pet_list_title"
             app:navigationContentDescription="@string/back_button"
             app:navigationIcon="?attr/homeAsUpIndicator" />
 

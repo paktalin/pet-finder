@@ -1,9 +1,9 @@
 package com.paktalin.petfinder.data.remote
 
-import com.paktalin.petfinder.data.remote.dto.FactsResponseDto
+import com.paktalin.petfinder.data.remote.dto.PetsResponseDto
 import retrofit2.http.GET
 
 interface PetFinderService {
-    @GET("facts")
-    suspend fun getFacts(): FactsResponseDto
+    @GET("animals")
+    suspend fun getPets(): PetsResponseDto
 }

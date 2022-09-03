@@ -5,7 +5,7 @@ import androidx.room.Room
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
 import com.paktalin.petfinder.BuildConfig
 import com.paktalin.petfinder.data.local.ApplicationDb
-import com.paktalin.petfinder.data.local.FactDao
+import com.paktalin.petfinder.data.local.PetDao
 import com.paktalin.petfinder.data.remote.PetFinderService
 import dagger.Module
 import dagger.Provides
@@ -67,6 +67,6 @@ object ApplicationModule {
 
     @Singleton
     @Provides
-    fun factDao(applicationDb: ApplicationDb): FactDao = applicationDb.factDao()
+    fun factDao(applicationDb: ApplicationDb): PetDao = applicationDb.petDao()
 
 }

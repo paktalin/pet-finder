@@ -3,11 +3,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
-    app:startDestination="@id/factList">
+    app:startDestination="@id/petList">
 
     <fragment
-        android:id="@+id/factList"
-        android:name="com.paktalin.petfinder.ui.fact.list.FactListFragment"
-        tools:layout="@layout/fact_list_fragment" />
+        android:id="@+id/petList"
+        android:name="com.paktalin.petfinder.ui.pet.list.PetListFragment"
+        tools:layout="@layout/pet_list_fragment" />
 
 </navigation>

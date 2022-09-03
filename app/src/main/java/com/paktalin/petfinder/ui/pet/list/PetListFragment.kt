@@ -1,4 +1,4 @@
-package com.paktalin.petfinder.ui.fact.list
+package com.paktalin.petfinder.ui.pet.list
 
 import android.os.Bundle
 import android.view.View
@@ -6,7 +6,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import com.paktalin.petfinder.R
-import com.paktalin.petfinder.databinding.FactListFragmentBinding
+import com.paktalin.petfinder.databinding.PetListFragmentBinding
 import com.paktalin.petfinder.utils.navigateUp
 import com.paktalin.petfinder.utils.viewLifecycle
 import dagger.hilt.android.AndroidEntryPoint
@@ -15,12 +15,12 @@ import kotlinx.coroutines.flow.onEach
 import timber.log.Timber
 
 @AndroidEntryPoint
-class FactListFragment : Fragment(R.layout.fact_list_fragment) {
+class PetListFragment : Fragment(R.layout.pet_list_fragment) {
 
-    private val view by viewLifecycle(FactListFragmentBinding::bind)
-    private val viewModel: FactListViewModel by viewModels()
+    private val view by viewLifecycle(PetListFragmentBinding::bind)
+    private val viewModel: PetListViewModel by viewModels()
     private val adapter by viewLifecycle {
-        FactAdapter(onClick = { item -> Timber.e("click: $item") })
+        PetAdapter(onClick = { item -> Timber.e("click: $item") })
     }
 
     private fun setupViews() = with(view) {
@@ -29,12 +29,12 @@ class FactListFragment : Fragment(R.layout.fact_list_fragment) {
 
     }
 
-    private fun onState(state: FactListState) = with(view) {
+    private fun onState(state: PetListState) = with(view) {
         Timber.i("onState: $state")
-        adapter.submitList(state.facts)
+        adapter.submitList(state.pets)
     }
 
-    private fun onAction(action: FactListAction) {
+    private fun onAction(action: PetListAction) {
         Timber.i("onAction: $action")
     }
 

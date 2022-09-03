@@ -2,13 +2,13 @@ package com.paktalin.petfinder.data.local
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
-import com.paktalin.petfinder.data.local.entity.FactEntity
+import com.paktalin.petfinder.data.local.entity.PetEntity
 
 @Database(
-    entities = [FactEntity::class],
+    entities = [PetEntity::class],
     version = 1
 )
 abstract class ApplicationDb : RoomDatabase() {
 
-    abstract fun factDao(): FactDao
+    abstract fun petDao(): PetDao
 }
