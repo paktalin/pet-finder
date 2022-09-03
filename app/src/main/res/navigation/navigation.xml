@@ -8,6 +8,18 @@
     <fragment
         android:id="@+id/petList"
         android:name="com.paktalin.petfinder.ui.pet.list.PetListFragment"
-        tools:layout="@layout/pet_list_fragment" />
+        android:label="PetListFragment"
+        tools:layout="@layout/pet_list_fragment">
+
+        <action
+            android:id="@+id/filters"
+            app:destination="@id/petFilterDialog" />
+    </fragment>
+
+    <dialog
+        android:id="@+id/petFilterDialog"
+        android:name="com.paktalin.petfinder.ui.pet.filter.PetFilterDialog"
+        android:label="PetFilterDialog"
+        tools:layout="@layout/pet_filter_dialog" />
 
 </navigation>

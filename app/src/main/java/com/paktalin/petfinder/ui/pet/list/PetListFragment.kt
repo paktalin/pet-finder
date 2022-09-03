@@ -14,6 +14,7 @@ import com.paktalin.petfinder.ui.pet.list.PetListAction.ShowError
 import com.paktalin.petfinder.ui.pet.list.PetListEvent.FilterClick
 import com.paktalin.petfinder.ui.pet.list.PetListEvent.ItemClick
 import com.paktalin.petfinder.ui.showError
+import com.paktalin.petfinder.utils.navigate
 import com.paktalin.petfinder.utils.navigateUp
 import com.paktalin.petfinder.utils.viewLifecycle
 import dagger.hilt.android.AndroidEntryPoint
@@ -54,9 +55,7 @@ class PetListFragment : Fragment(R.layout.pet_list_fragment) {
 
     }
 
-    private fun navigateToFilters() {
-
-    }
+    private fun navigateToFilters() = navigate(PetListFragmentDirections.filters())
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
