@@ -17,7 +17,7 @@ import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-object ApiModule {
+object ApplicationModule {
 
     @Provides
     @Singleton
@@ -42,4 +42,13 @@ object ApiModule {
     @Provides
     @Singleton
     fun catFactsService(retrofit: Retrofit): CatFactsService = retrofit.create()
+
+    @Provides
+    @Singleton
+    fun json(): Json {
+        return Json {
+            encodeDefaults = true
+            ignoreUnknownKeys = true
+        }
+    }
 }
