@@ -6,5 +6,6 @@ import androidx.room.PrimaryKey
 @Entity
 data class PetEntity(
     @PrimaryKey val id: Long,
-    val name: String
+    val name: String,
+    val primaryPhotoSmall: String?,
 )

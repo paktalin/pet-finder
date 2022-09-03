@@ -5,6 +5,8 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import coil.load
+import com.paktalin.petfinder.R
 import com.paktalin.petfinder.databinding.PetListItemBinding
 import com.paktalin.petfinder.model.Pet
 
@@ -37,6 +39,11 @@ class PetViewHolder(
 
     fun bind(item: Pet) = with(view) {
         name.text = item.name
+        pictureImage.load(item.smallPictureUrl) {
+            placeholder(R.drawable.ic_paw)
+            fallback(R.drawable.ic_paw)
+            error(R.drawable.ic_paw)
+        }
     }
 }
 

@@ -28,7 +28,7 @@ class PetFinderInterceptor @Inject constructor(
             val refreshResponse = refreshToken(originalRequest, chain)
             if (refreshResponse.isSuccessful) {
                 val refreshedToken = decodeRefreshedToken(refreshResponse)
-                runBlocking { devicePreferences.setAccessToken(token) }
+                runBlocking { devicePreferences.setAccessToken(refreshedToken) }
                 val newCall = originalRequest.newBuilder().addTokenHeader(refreshedToken).build()
                 return chain.proceed(newCall)
             }

@@ -68,4 +68,6 @@ dependencies {
     implementation(libs.squareup.okhttp.loggingInterceptor)
     implementation(libs.squareup.retrofit)
     implementation(libs.jakewharton.retrofitKotlinxConverter)
+    implementation(libs.coil)
+
 }
