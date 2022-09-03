@@ -1,4 +1,4 @@
-package com.paktalin.catfacts
+package com.paktalin.catfacts.ui.fact.list
 
 import androidx.lifecycle.ViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -12,7 +12,7 @@ import javax.inject.Inject
 @HiltViewModel
 class FactListViewModel @Inject constructor() : ViewModel() {
 
-    private val _state = MutableStateFlow(FactListState())
+    private val _state = MutableStateFlow(FactListState)
     val state: Flow<FactListState> = _state
 
     private val _action = Channel<FactListAction>()

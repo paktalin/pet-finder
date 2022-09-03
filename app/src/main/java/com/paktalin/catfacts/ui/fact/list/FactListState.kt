@@ -1,3 +1,3 @@
-package com.paktalin.catfacts
+package com.paktalin.catfacts.ui.fact.list
 
-data class FactListState()
+object FactListState

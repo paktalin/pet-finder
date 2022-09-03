@@ -16,24 +16,16 @@ androidx-lifecycle = "2.5.0"
 androidx-navigation = "2.5.0"
 androidx-datastore = "1.0.0"
 androidx-room = "2.4.2"
-androidx-work = "2.7.1"
 androidx-hilt = "1.0.0"
-androidx-webkit = "1.4.0"
-androidx-browser = "1.4.0"
 androidx-swiperefreshlayout = "1.1.0"
 androidx-recyclerview = "1.2.1"
 androidx-viewpager2 = "1.0.0"
 androidx-paging = "3.1.1"
 androidx-constraintlayout = "2.1.4"
-androidx-gridlayout = "1.0.0"
-androidx-palette = "1.0.0"
 
 google-hilt = "2.42"
 google-android-material = "1.6.1"
 google-services = "4.3.13"
-
-firebase-crashlytics-gradle = "2.9.1"
-firebase-bom = "30.3.0"
 
 detekt = "1.21.0"
 jakewharton-timber = "5.0.1"
@@ -42,10 +34,6 @@ squareup-okhttp = "4.10.0"
 squareup-retrofit = "2.9.0"
 coil = "2.1.0"
 airbnb-lottie = "5.2.0"
-tbuonomo-dotsindicator = "4.3"
-openid-appauth = "0.11.1"
-readium = "develop-SNAPSHOT"
-nanohttpd = "master-SNAPSHOT"
 
 [plugins]
 detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt" }
@@ -74,30 +62,19 @@ androidx-datastore-preferences = { module = "androidx.datastore:datastore-prefer
 androidx-roomKtx = { module = "androidx.room:room-ktx", version.ref = "androidx-room" }
 androidx-room-paging = { module = "androidx.room:room-paging", version.ref = "androidx-room" }
 androidx-room-compiler = { module = "androidx.room:room-compiler", version.ref = "androidx-room" }
-androidx-work-runtimeKtx = { module = "androidx.work:work-runtime-ktx", version.ref = "androidx-work" }
 androidx-hilt-work = { module = "androidx.hilt:hilt-work", version.ref = "androidx-hilt" }
 androidx-hilt-compiler = { module = "androidx.hilt:hilt-compiler", version.ref = "androidx-hilt" }
-androidx-webkit = { module = "androidx.webkit:webkit", version.ref = "androidx-webkit" }
-androidx-browser = { module = "androidx.browser:browser", version.ref = "androidx-browser" }
 androidx-constraintlayout = { module = "androidx.constraintlayout:constraintlayout", version.ref = "androidx-constraintlayout" }
 androidx-swiperefreshlayout = { module = "androidx.swiperefreshlayout:swiperefreshlayout", version.ref = "androidx-swiperefreshlayout" }
 androidx-recyclerview = { module = "androidx.recyclerview:recyclerview", version.ref = "androidx-recyclerview" }
 androidx-viewpager2 = { module = "androidx.viewpager2:viewpager2", version.ref = "androidx-viewpager2" }
 androidx-paging-runtimeKtx = { module = "androidx.paging:paging-runtime-ktx", version.ref = "androidx-paging" }
-androidx-gridlayout = { module = "androidx.gridlayout:gridlayout", version.ref = "androidx-gridlayout" }
-androidx-paletteKtx = { module = "androidx.palette:palette-ktx", version.ref = "androidx-palette" }
 
 google-hilt-android = { module = "com.google.dagger:hilt-android", version.ref = "google-hilt" }
 google-hilt-compiler = { module = "com.google.dagger:hilt-android-compiler", version.ref = "google-hilt" }
 google-hilt-gradle = { module = "com.google.dagger:hilt-android-gradle-plugin", version.ref = "google-hilt" }
 google-googleServices = { module = "com.google.gms:google-services", version.ref = "google-services" }
 google-android-material = { module = "com.google.android.material:material", version.ref = "google-android-material" }
-
-firebase-crashlytics-gradle = { module = "com.google.firebase:firebase-crashlytics-gradle", version.ref = "firebase-crashlytics-gradle" }
-firebase-bom = { module = "com.google.firebase:firebase-bom", version.ref = "firebase-bom" }
-firebase-crashlyticsKtx = { module = "com.google.firebase:firebase-crashlytics-ktx" }
-firebase-analyticsKtx = { module = "com.google.firebase:firebase-analytics-ktx" }
-firebase-messagingKtx = { module = "com.google.firebase:firebase-messaging-ktx" }
 
 jakewharton-timber = { module = "com.jakewharton.timber:timber", version.ref = "jakewharton-timber" }
 jakewharton-retrofitKotlinxConverter = { module = "com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter", version.ref = "jakewharton-retrofitKotlinxConverter" }
@@ -108,12 +85,3 @@ squareup-retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = 
 
 coil = { module = "io.coil-kt:coil", version.ref = "coil" }
 airbnb-lottie = { module = "com.airbnb.android:lottie", version.ref = "airbnb-lottie" }
-tbuonomo-dotsindicator = { module = "com.tbuonomo:dotsindicator", version.ref = "tbuonomo-dotsindicator" }
-openid-appauth = { module = "net.openid:appauth", version.ref = "openid-appauth" }
-
-readium-shared = { module = "com.github.readium.kotlin-toolkit:readium-shared", version.ref = "readium" }
-readium-streamer = { module = "com.github.readium.kotlin-toolkit:readium-streamer", version.ref = "readium" }
-readium-navigator = { module = "com.github.readium.kotlin-toolkit:readium-navigator", version.ref = "readium" }
-
-nanohttpd = { module = "com.github.edrlab.nanohttpd:nanohttpd", version.ref = "nanohttpd" }
-nanohttpd-nanolets = { module = "com.github.edrlab.nanohttpd:nanohttpd-nanolets", version.ref = "nanohttpd" }

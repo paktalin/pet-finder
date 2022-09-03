@@ -2,10 +2,7 @@ package com.paktalin.catfacts
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import dagger.hilt.android.AndroidEntryPoint
 
-class Activity : AppCompatActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-    }
-}
+@AndroidEntryPoint
+class Activity : AppCompatActivity(R.layout.activity)
