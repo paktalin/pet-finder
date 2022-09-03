@@ -53,6 +53,7 @@ dependencies {
     implementation(libs.androidx.fragmentKtx)
     implementation(libs.androidx.navigation.fragmentKtx)
     implementation(libs.androidx.roomKtx)
+    kapt(libs.androidx.room.compiler)
 
     implementation(libs.jakewharton.timber)
     kapt(libs.androidx.hilt.compiler)

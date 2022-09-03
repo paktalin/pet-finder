@@ -1,17 +1,21 @@
 package com.paktalin.catfacts.usecase
 
+import com.paktalin.catfacts.data.local.FactDao
 import com.paktalin.catfacts.data.remote.CatFactsService
+import com.paktalin.catfacts.mapping.toEntities
 import dagger.Reusable
 import timber.log.Timber
 import javax.inject.Inject
 
 @Reusable
-class RefreshFactsUseCase @Inject constructor(private val catFactsService: CatFactsService, ) {
+class RefreshFactsUseCase @Inject constructor(
+    private val catFactsService: CatFactsService,
+    private val factDao: FactDao,
+) {
     suspend operator fun invoke() {
         try {
             val response = catFactsService.getFacts()
-            // TODO save facts
-            Timber.e("response: $response")
+            factDao.replaceFacts(response.toEntities())
             Result.Success
         } catch (e: Exception) {
             Result.Failure(e)

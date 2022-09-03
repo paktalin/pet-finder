@@ -5,6 +5,7 @@ import androidx.room.Room
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
 import com.paktalin.catfacts.BuildConfig
 import com.paktalin.catfacts.data.local.ApplicationDb
+import com.paktalin.catfacts.data.local.FactDao
 import com.paktalin.catfacts.data.remote.CatFactsService
 import dagger.Module
 import dagger.Provides
@@ -63,4 +64,9 @@ object ApplicationModule {
             .databaseBuilder(context, ApplicationDb::class.java, "application")
             .build()
     }
+
+    @Singleton
+    @Provides
+    fun factDao(applicationDb: ApplicationDb): FactDao = applicationDb.factDao()
+
 }
