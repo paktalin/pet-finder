@@ -39,6 +39,13 @@ fun <T> Fragment.getDestinationResult(
     @IdRes destinationId: Int
 ): Flow<T> = findNavController().getDestinationResult(key, destinationId)
 
+fun <T> Fragment.setDestinationResult(
+    key: String,
+    value: T,
+    @IdRes destinationId: Int? = null
+) = findNavController().setDestinationResult(key, value, destinationId)
+
+
 fun <T> NavController.getDestinationResult(
     key: String,
     @IdRes destinationId: Int
@@ -56,3 +63,15 @@ fun <T> NavController.getDestinationResult(
     awaitClose { backStackEntry.lifecycle.removeObserver(observer) }
 }
 
+fun <T> NavController.setDestinationResult(
+    key: String,
+    value: T,
+    @IdRes destinationId: Int? = null
+) {
+    val entry = if (destinationId != null) {
+        getBackStackEntry(destinationId)
+    } else {
+        previousBackStackEntry
+    }
+    entry?.savedStateHandle?.set(key, value)
+}

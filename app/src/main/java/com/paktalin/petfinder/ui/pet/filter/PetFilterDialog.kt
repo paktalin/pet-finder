@@ -13,6 +13,7 @@ import com.paktalin.petfinder.R
 import com.paktalin.petfinder.databinding.PetFilterDialogBinding
 import com.paktalin.petfinder.model.PetType
 import com.paktalin.petfinder.utils.getDestinationResult
+import com.paktalin.petfinder.utils.setDestinationResult
 import com.paktalin.petfinder.utils.viewLifecycle
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.Flow
@@ -26,7 +27,7 @@ class PetFilterDialog : BottomSheetDialogFragment() {
     private val view by viewLifecycle(PetFilterDialogBinding::bind)
     private val viewModel: PetFilterViewModel by viewModels()
     private val adapter by viewLifecycle {
-        PetFilterAdapter(onClick = { })
+        PetFilterAdapter(onClick = { onItemClick(it) })
     }
 
     private fun setupViews() = with(view) {
@@ -36,6 +37,11 @@ class PetFilterDialog : BottomSheetDialogFragment() {
     private fun onState(state: List<PetType>) = with(view) {
         Timber.i("onState: $state")
         adapter.submitList(state)
+    }
+
+    private fun onItemClick(type: String) {
+        setDestinationResult(RESULT, type)
+        dismiss()
     }
 
     override fun onCreateView(

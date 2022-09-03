@@ -6,8 +6,7 @@ import com.paktalin.petfinder.model.Pet
 import com.paktalin.petfinder.ui.pet.list.PetListAction.NavigateToDetails
 import com.paktalin.petfinder.ui.pet.list.PetListAction.NavigateToFilters
 import com.paktalin.petfinder.ui.pet.list.PetListAction.ShowError
-import com.paktalin.petfinder.ui.pet.list.PetListEvent.FilterClick
-import com.paktalin.petfinder.ui.pet.list.PetListEvent.ItemClick
+import com.paktalin.petfinder.ui.pet.list.PetListEvent.*
 import com.paktalin.petfinder.usecase.ObservePetsUseCase
 import com.paktalin.petfinder.usecase.RefreshPetsUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -34,11 +33,12 @@ class PetListViewModel @Inject constructor(
 
     private var pets: List<Pet> = emptyList()
 
-    fun trySend(event: PetListEvent) {
-        Timber.i("trySend $event")
+    fun send(event: PetListEvent) {
+        Timber.i("send $event")
         when (event) {
             FilterClick -> onFilterClick()
             is ItemClick -> onItemClick(event.id)
+            is FilterSelected -> onFilterSelected(event.filter)
         }
     }
 
@@ -67,6 +67,10 @@ class PetListViewModel @Inject constructor(
 
     private fun onItemClick(id: Long) = viewModelScope.launch {
         _action.send(NavigateToDetails(id))
+    }
+
+    private fun onFilterSelected(filter: String) {
+        
     }
 
     private fun modifyState() {

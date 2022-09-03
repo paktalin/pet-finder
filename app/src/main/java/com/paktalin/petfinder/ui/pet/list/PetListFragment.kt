@@ -8,10 +8,12 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import com.paktalin.petfinder.R
 import com.paktalin.petfinder.databinding.PetListFragmentBinding
+import com.paktalin.petfinder.ui.pet.filter.getFilterResult
 import com.paktalin.petfinder.ui.pet.list.PetListAction.NavigateToDetails
 import com.paktalin.petfinder.ui.pet.list.PetListAction.NavigateToFilters
 import com.paktalin.petfinder.ui.pet.list.PetListAction.ShowError
 import com.paktalin.petfinder.ui.pet.list.PetListEvent.FilterClick
+import com.paktalin.petfinder.ui.pet.list.PetListEvent.FilterSelected
 import com.paktalin.petfinder.ui.pet.list.PetListEvent.ItemClick
 import com.paktalin.petfinder.ui.showError
 import com.paktalin.petfinder.utils.navigate
@@ -28,13 +30,13 @@ class PetListFragment : Fragment(R.layout.pet_list_fragment) {
     private val view by viewLifecycle(PetListFragmentBinding::bind)
     private val viewModel: PetListViewModel by viewModels()
     private val adapter by viewLifecycle {
-        PetAdapter(onClick = { viewModel.trySend(ItemClick(it)) })
+        PetAdapter(onClick = { viewModel.send(ItemClick(it)) })
     }
 
     private fun setupViews() = with(view) {
         toolbar.setNavigationOnClickListener { navigateUp() }
         recyclerView.adapter = adapter
-        toolbar.setOnFilterClickListener { viewModel.trySend(FilterClick) }
+        toolbar.setOnFilterClickListener { viewModel.send(FilterClick) }
     }
 
     private fun onState(state: PetListState) = with(view) {
@@ -51,6 +53,10 @@ class PetListFragment : Fragment(R.layout.pet_list_fragment) {
         }
     }
 
+    private fun onFilterDestinationResult(filter: String) {
+        viewModel.send(FilterSelected(filter))
+    }
+
     private fun navigateToDetails(id: Long) {
 
     }
@@ -63,6 +69,9 @@ class PetListFragment : Fragment(R.layout.pet_list_fragment) {
         with(viewLifecycleOwner.lifecycleScope) {
             viewModel.state.onEach(::onState).launchIn(this)
             viewModel.action.onEach(::onAction).launchIn(this)
+            getFilterResult(R.id.petListFragment)
+                .onEach(::onFilterDestinationResult)
+                .launchIn(this)
         }
     }
 }
