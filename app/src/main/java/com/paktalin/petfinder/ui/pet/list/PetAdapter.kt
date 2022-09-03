@@ -39,6 +39,7 @@ class PetViewHolder(
 
     fun bind(item: Pet) = with(view) {
         name.text = item.name
+        description.text = item.description
         pictureImage.load(item.smallPictureUrl) {
             placeholder(R.drawable.ic_paw)
             fallback(R.drawable.ic_paw)

@@ -6,10 +6,22 @@ import com.paktalin.petfinder.model.Pet
 
 fun PetsResponseDto.toEntities(): List<PetEntity> {
     return animals.map {
-        PetEntity(id = it.id, name = it.name, primaryPhotoSmall = it.primary_photo_cropped?.small)
+        PetEntity(
+            id = it.id,
+            name = it.name,
+            description = it.description,
+            primaryPhotoSmall = it.primary_photo_cropped?.small
+        )
     }
 }
 
 fun List<PetEntity>.toModels() = map { it.toModel() }
 
-fun PetEntity.toModel() = Pet(id = id, name = name, smallPictureUrl = primaryPhotoSmall)
+fun PetEntity.toModel(): Pet {
+    return Pet(
+        id = id,
+        name = name,
+        description = description,
+        smallPictureUrl = primaryPhotoSmall
+    )
+}
