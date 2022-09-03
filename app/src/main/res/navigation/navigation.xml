@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/factList"
-        android:name="com.paktalin.catfacts.ui.fact.list.FactListFragment"
+        android:name="com.paktalin.petfinder.ui.fact.list.FactListFragment"
         tools:layout="@layout/fact_list_fragment" />
 
 </navigation>

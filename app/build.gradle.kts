@@ -11,7 +11,7 @@ android {
     compileSdk = 32
 
     defaultConfig {
-        applicationId = "com.paktalin.catfacts"
+        applicationId = "com.paktalin.petfinder"
         minSdk = 24
         targetSdk = 32
         versionCode = 1
@@ -54,6 +54,7 @@ dependencies {
     implementation(libs.androidx.navigation.fragmentKtx)
     implementation(libs.androidx.roomKtx)
     kapt(libs.androidx.room.compiler)
+    implementation(libs.androidx.recyclerview)
 
     implementation(libs.jakewharton.timber)
     kapt(libs.androidx.hilt.compiler)
