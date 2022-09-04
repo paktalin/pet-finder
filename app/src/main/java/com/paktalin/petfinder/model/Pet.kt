@@ -7,6 +7,7 @@ data class Pet(
     val pictureUrl: String?,
     val type: String,
     val gender: Gender,
+    val phoneNumber: String?
 )
 
 enum class Gender {

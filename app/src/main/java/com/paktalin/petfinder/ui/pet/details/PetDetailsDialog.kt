@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
@@ -35,6 +36,8 @@ class PetDetailsDialog : BottomSheetDialogFragment() {
             pictureImage.loadPetPicture(pet.pictureUrl)
             gender.setGenderDrawable(pet.gender)
             description.text = pet.description
+            callButton.isVisible = pet.phoneNumber != null
+            callButton.text = pet.phoneNumber
         }
     }
 

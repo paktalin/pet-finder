@@ -16,6 +16,7 @@ fun PetsResponseDto.toEntities(): List<PetEntity> {
             pictureUrl = it.primary_photo_cropped?.medium,
             type = it.type,
             gender = it.gender.toEntity(),
+            phoneNumber = it.contact.phone,
         )
     }
 }
@@ -29,7 +30,8 @@ fun PetEntity.toModel(): Pet {
         description = description,
         pictureUrl = pictureUrl,
         type = type,
-        gender = gender.toModel()
+        gender = gender.toModel(),
+        phoneNumber = phoneNumber,
     )
 }
 
