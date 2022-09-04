@@ -81,7 +81,7 @@ class PetListViewModel @Inject constructor(
     }
 
     private fun onFilterSelected(filter: String) {
-        appliedFilter = filter
+        appliedFilter = filter.takeUnless { it == "all" }
         modifyState()
     }
 

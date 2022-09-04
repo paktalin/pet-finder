@@ -28,10 +28,16 @@ class PetFilterDialog : BottomSheetDialogFragment() {
     private fun setupViews() = with(view) {
         recyclerView.adapter = adapter
         adapter.submitList(args.petTypes.toList())
+        resetFiltersButton.setOnClickListener { onResetFiltersClick() }
     }
 
     private fun onItemClick(type: String) {
         setDestinationResult(RESULT, type)
+        dismiss()
+    }
+
+    private fun onResetFiltersClick() {
+        setDestinationResult(RESULT, "all")
         dismiss()
     }
 
@@ -53,4 +59,4 @@ fun Fragment.getFilterResult(
     @IdRes destinationId: Int
 ): Flow<String> = getDestinationResult(RESULT, destinationId)
 
-private const val RESULT = "BookActionsDialog.result"
+private const val RESULT = "PetFilterDialog.result"
