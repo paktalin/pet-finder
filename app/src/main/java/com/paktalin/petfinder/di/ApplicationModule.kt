@@ -6,7 +6,6 @@ import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFact
 import com.paktalin.petfinder.BuildConfig
 import com.paktalin.petfinder.data.local.ApplicationDb
 import com.paktalin.petfinder.data.local.PetDao
-import com.paktalin.petfinder.data.local.PetTypeDao
 import com.paktalin.petfinder.data.remote.PetFinderInterceptor
 import com.paktalin.petfinder.data.remote.PetFinderService
 import dagger.Module
@@ -72,7 +71,4 @@ object ApplicationModule {
     @Provides
     fun petDao(applicationDb: ApplicationDb): PetDao = applicationDb.petDao()
 
-    @Singleton
-    @Provides
-    fun petTypeDao(applicationDb: ApplicationDb): PetTypeDao = applicationDb.petTypeDao()
 }

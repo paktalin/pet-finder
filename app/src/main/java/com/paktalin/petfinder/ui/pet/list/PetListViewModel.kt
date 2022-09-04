@@ -6,7 +6,10 @@ import com.paktalin.petfinder.model.Pet
 import com.paktalin.petfinder.ui.pet.list.PetListAction.NavigateToDetails
 import com.paktalin.petfinder.ui.pet.list.PetListAction.NavigateToFilters
 import com.paktalin.petfinder.ui.pet.list.PetListAction.ShowError
-import com.paktalin.petfinder.ui.pet.list.PetListEvent.*
+import com.paktalin.petfinder.ui.pet.list.PetListEvent.FilterClick
+import com.paktalin.petfinder.ui.pet.list.PetListEvent.FilterSelected
+import com.paktalin.petfinder.ui.pet.list.PetListEvent.ItemClick
+import com.paktalin.petfinder.usecase.GetPetTypesFomPetsUseCase
 import com.paktalin.petfinder.usecase.ObservePetsUseCase
 import com.paktalin.petfinder.usecase.RefreshPetsUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -23,6 +26,7 @@ import javax.inject.Inject
 class PetListViewModel @Inject constructor(
     private val refreshPetsUseCase: RefreshPetsUseCase,
     private val observePetsUseCase: ObservePetsUseCase,
+    private val getPetTypesFomPetsUseCase: GetPetTypesFomPetsUseCase,
 ) : ViewModel() {
 
     private val _state = MutableStateFlow(PetListState())
@@ -63,7 +67,8 @@ class PetListViewModel @Inject constructor(
     }
 
     private fun onFilterClick() = viewModelScope.launch {
-        _action.send(NavigateToFilters)
+        val petTypes = getPetTypesFomPetsUseCase(pets)
+        _action.send(NavigateToFilters(petTypes))
     }
 
     private fun onItemClick(id: Long) = viewModelScope.launch {

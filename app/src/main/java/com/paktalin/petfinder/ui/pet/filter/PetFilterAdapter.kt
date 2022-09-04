@@ -6,15 +6,14 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.paktalin.petfinder.databinding.PetFilterItemBinding
-import com.paktalin.petfinder.model.PetType
 
 class PetFilterAdapter(
     private val onClick: (name: String) -> Unit
-) : ListAdapter<PetType, PetViewHolder>(PetDiffCallback) {
+) : ListAdapter<String, PetViewHolder>(PetDiffCallback) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PetViewHolder {
         val inflater = LayoutInflater.from(parent.context)
-        val onClick = { position: Int -> onClick(getItem(position).name) }
+        val onClick = { position: Int -> onClick(getItem(position)) }
         return PetViewHolder(
             view = PetFilterItemBinding.inflate(inflater, parent, false),
             onClick = onClick
@@ -35,18 +34,14 @@ class PetViewHolder(
         view.root.setOnClickListener { onClick(bindingAdapterPosition) }
     }
 
-    fun bind(item: PetType) = with(view) {
-        name.text = item.name
+    fun bind(petType: String) = with(view) {
+        name.text = petType
     }
 }
 
-private object PetDiffCallback : DiffUtil.ItemCallback<PetType>() {
+private object PetDiffCallback : DiffUtil.ItemCallback<String>() {
 
-    override fun areItemsTheSame(oldItem: PetType, newItem: PetType): Boolean {
-        return oldItem.name == newItem.name
-    }
+    override fun areItemsTheSame(oldItem: String, newItem: String): Boolean = oldItem == newItem
 
-    override fun areContentsTheSame(oldItem: PetType, newItem: PetType): Boolean {
-        return oldItem == newItem
-    }
+    override fun areContentsTheSame(oldItem: String, newItem: String): Boolean = oldItem == newItem
 }

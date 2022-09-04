@@ -6,46 +6,28 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.IdRes
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
-import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.navArgs
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.paktalin.petfinder.R
 import com.paktalin.petfinder.databinding.PetFilterDialogBinding
-import com.paktalin.petfinder.model.PetType
-import com.paktalin.petfinder.ui.pet.filter.PetFilterAction.ShowError
-import com.paktalin.petfinder.ui.showError
 import com.paktalin.petfinder.utils.getDestinationResult
 import com.paktalin.petfinder.utils.setDestinationResult
 import com.paktalin.petfinder.utils.viewLifecycle
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.launchIn
-import kotlinx.coroutines.flow.onEach
-import timber.log.Timber
 
 @AndroidEntryPoint
 class PetFilterDialog : BottomSheetDialogFragment() {
 
     private val view by viewLifecycle(PetFilterDialogBinding::bind)
-    private val viewModel: PetFilterViewModel by viewModels()
+    private val args by navArgs<PetFilterDialogArgs>()
     private val adapter by viewLifecycle {
         PetFilterAdapter(onClick = { onItemClick(it) })
     }
 
     private fun setupViews() = with(view) {
         recyclerView.adapter = adapter
-    }
-
-    private fun onState(state: List<PetType>) = with(view) {
-        Timber.i("onState: $state")
-        adapter.submitList(state)
-    }
-
-    private fun onAction(action: PetFilterAction) = with(view) {
-        Timber.i("onAction: $action")
-        when (action) {
-            is ShowError -> showError(action.error)
-        }
+        adapter.submitList(args.petTypes.toList())
     }
 
     private fun onItemClick(type: String) {
@@ -64,8 +46,6 @@ class PetFilterDialog : BottomSheetDialogFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupViews()
-        viewModel.state.onEach(::onState).launchIn(viewLifecycleOwner.lifecycleScope)
-        viewModel.action.onEach(::onAction).launchIn(viewLifecycleOwner.lifecycleScope)
     }
 }
 

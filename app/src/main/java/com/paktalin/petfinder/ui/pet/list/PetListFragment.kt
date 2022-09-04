@@ -49,7 +49,7 @@ class PetListFragment : Fragment(R.layout.pet_list_fragment) {
         when (action) {
             is ShowError -> showError(action.error)
             is NavigateToDetails -> navigateToDetails(action.id)
-            NavigateToFilters -> navigateToFilters()
+            is NavigateToFilters -> navigateToFilters(action.petTypes)
         }
     }
 
@@ -61,7 +61,9 @@ class PetListFragment : Fragment(R.layout.pet_list_fragment) {
 
     }
 
-    private fun navigateToFilters() = navigate(PetListFragmentDirections.filters())
+    private fun navigateToFilters(petTypes: List<String>) {
+        navigate(PetListFragmentDirections.filters(petTypes.toTypedArray()))
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

@@ -20,6 +20,11 @@
         android:id="@+id/petFilterDialog"
         android:name="com.paktalin.petfinder.ui.pet.filter.PetFilterDialog"
         android:label="PetFilterDialog"
-        tools:layout="@layout/pet_filter_dialog" />
+        tools:layout="@layout/pet_filter_dialog" >
+
+        <argument
+            android:name="petTypes"
+            app:argType="string[]" />
+    </dialog>
 
 </navigation>
