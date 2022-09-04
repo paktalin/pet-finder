@@ -21,7 +21,7 @@ class PetDetailsViewModel @Inject constructor(
     private val observePetUseCase: ObservePetUseCase,
 ) : ViewModel() {
 
-    private val args = PetDetailsFragmentArgs.fromSavedStateHandle(savedStateHandle)
+    private val args = PetDetailsDialogArgs.fromSavedStateHandle(savedStateHandle)
 
     private val _state = MutableStateFlow(PetDetailsState())
     val state: Flow<PetDetailsState> = _state

@@ -31,14 +31,14 @@
             app:argType="string[]" />
     </dialog>
 
-    <fragment
+    <dialog
         android:id="@+id/petDetailsFragment"
-        android:name="com.paktalin.petfinder.ui.pet.details.PetDetailsFragment"
+        android:name="com.paktalin.petfinder.ui.pet.details.PetDetailsDialog"
         android:label="PetDetailsFragment"
-        tools:layout="@layout/pet_details_fragment" >
+        tools:layout="@layout/pet_details_dialog" >
         <argument
             android:name="id"
             app:argType="long" />
-    </fragment>
+    </dialog>
 
 </navigation>
