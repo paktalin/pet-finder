@@ -5,6 +5,6 @@
 
     <string name="pet_gender">Gender</string>
 
-    <string name="pet_list_title">Pet list</string>
+    <string name="pet_list_title">All pets</string>
     <string name="pet_list_filter">Filter</string>
 </resources>

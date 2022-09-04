@@ -37,7 +37,7 @@ class PetListViewModel @Inject constructor(
 
     private var pets: List<Pet> = emptyList()
     private var isLoadingVisible: Boolean = false
-    private var filterPetType: String? = null
+    private var appliedFilter: String? = null
 
     fun send(event: PetListEvent) {
         Timber.i("send $event")
@@ -81,12 +81,18 @@ class PetListViewModel @Inject constructor(
     }
 
     private fun onFilterSelected(filter: String) {
-        filterPetType = filter
+        appliedFilter = filter
         modifyState()
     }
 
     private fun modifyState() {
-        val pets = filterPetType?.let { filter -> pets.filter { it.type == filter } } ?: pets
-        _state.update { it.copy(pets = pets, isLoadingVisible = isLoadingVisible) }
+        val pets = appliedFilter?.let { filter -> pets.filter { it.type == filter } } ?: pets
+        _state.update {
+            it.copy(
+                pets = pets,
+                isLoadingVisible = isLoadingVisible,
+                toolbarText = appliedFilter
+            )
+        }
     }
 }

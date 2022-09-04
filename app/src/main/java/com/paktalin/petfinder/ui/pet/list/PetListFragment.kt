@@ -44,6 +44,7 @@ class PetListFragment : Fragment(R.layout.pet_list_fragment) {
         Timber.i("onState: $state")
         adapter.submitList(state.pets)
         progressBar.isVisible = state.isLoadingVisible
+        toolbar.title = state.toolbarText ?: getString(R.string.pet_list_title)
     }
 
     private fun onAction(action: PetListAction) {
