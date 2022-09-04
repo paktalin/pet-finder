@@ -10,4 +10,9 @@ data class PetEntity(
     val description: String?,
     val pictureUrl: String?,
     val type: String,
+    val gender: GenderEntity
 )
+
+enum class GenderEntity {
+    FEMALE, MALE, UNKNOWN
+}

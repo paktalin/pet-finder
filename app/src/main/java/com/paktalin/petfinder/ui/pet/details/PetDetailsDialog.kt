@@ -9,6 +9,7 @@ import androidx.lifecycle.lifecycleScope
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.paktalin.petfinder.R
 import com.paktalin.petfinder.databinding.PetDetailsDialogBinding
+import com.paktalin.petfinder.model.Gender
 import com.paktalin.petfinder.ui.pet.loadPetPicture
 import com.paktalin.petfinder.utils.viewLifecycle
 import dagger.hilt.android.AndroidEntryPoint
@@ -28,8 +29,15 @@ class PetDetailsDialog : BottomSheetDialogFragment() {
 
     private fun onState(state: PetDetailsState) = with(view) {
         Timber.i("onState: $state")
-        name.text = state.pet?.name
-        pictureImage.loadPetPicture(state.pet?.pictureUrl)
+        state.pet?.let { pet ->
+            name.text = pet.name
+            pictureImage.loadPetPicture(pet.pictureUrl)
+            gender.text = when (pet.gender) {
+                Gender.FEMALE -> "Female"
+                Gender.MALE -> "Male"
+                Gender.UNKNOWN -> "Unknown"
+            }
+        }
     }
 
     private fun onAction(action: PetDetailsAction) {

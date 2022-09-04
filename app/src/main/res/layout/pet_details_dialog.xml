@@ -28,4 +28,13 @@
         app:layout_constraintStart_toEndOf="@+id/pictureImage"
         app:layout_constraintTop_toTopOf="@id/topGuideline"
         tools:text="Amelia" />
+
+    <TextView
+        android:id="@+id/gender"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/grid_1x"
+        app:layout_constraintStart_toEndOf="@+id/pictureImage"
+        app:layout_constraintTop_toBottomOf="@id/name"
+        tools:text="Female" />
 </androidx.constraintlayout.widget.ConstraintLayout>

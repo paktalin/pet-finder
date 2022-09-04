@@ -5,5 +5,11 @@ data class Pet(
     val name: String,
     val description: String?,
     val pictureUrl: String?,
-    val type: String
+    val type: String,
+    val gender: Gender,
 )
+
+enum class Gender {
+    FEMALE, MALE, UNKNOWN
+}
+
