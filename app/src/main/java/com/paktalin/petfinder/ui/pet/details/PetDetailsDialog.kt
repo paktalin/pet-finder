@@ -1,5 +1,7 @@
 package com.paktalin.petfinder.ui.pet.details
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -12,12 +14,15 @@ import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.paktalin.petfinder.R
 import com.paktalin.petfinder.databinding.PetDetailsDialogBinding
 import com.paktalin.petfinder.model.Gender
+import com.paktalin.petfinder.ui.pet.details.PetDetailsAction.Call
+import com.paktalin.petfinder.ui.pet.details.PetDetailsEvent.CallClick
 import com.paktalin.petfinder.ui.pet.loadPetPicture
 import com.paktalin.petfinder.utils.viewLifecycle
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import timber.log.Timber
+
 
 @AndroidEntryPoint
 class PetDetailsDialog : BottomSheetDialogFragment() {
@@ -26,23 +31,30 @@ class PetDetailsDialog : BottomSheetDialogFragment() {
     private val viewModel: PetDetailsViewModel by viewModels()
 
     private fun setupViews() = with(view) {
-
+        callButton.setOnClickListener { viewModel.send(CallClick) }
     }
 
     private fun onState(state: PetDetailsState) = with(view) {
         Timber.i("onState: $state")
-        state.pet?.let { pet ->
-            name.text = pet.name
-            pictureImage.loadPetPicture(pet.pictureUrl)
-            gender.setGenderDrawable(pet.gender)
-            description.text = pet.description
-            callButton.isVisible = pet.phoneNumber != null
-            callButton.text = pet.phoneNumber
+        name.text = state.name
+        pictureImage.loadPetPicture(state.pictureUrl)
+        gender.setGenderDrawable(state.gender)
+        description.text = state.description
+        callButton.apply {
+            isVisible = state.phoneNumber != null
+            text = state.phoneNumber
         }
     }
 
     private fun onAction(action: PetDetailsAction) {
         Timber.i("onAction: $action")
+        when (action) {
+            is Call -> call(action.phoneNumber)
+        }
+    }
+
+    private fun call(uri: String) {
+        startActivity(Intent(Intent.ACTION_DIAL, Uri.parse(uri)))
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

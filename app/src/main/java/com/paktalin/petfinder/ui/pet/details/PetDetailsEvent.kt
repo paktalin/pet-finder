@@ -1,5 +1,5 @@
 package com.paktalin.petfinder.ui.pet.details
 
-sealed class PetDetailsEvent {
-
+sealed interface PetDetailsEvent {
+    object CallClick : PetDetailsEvent
 }

@@ -49,7 +49,6 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/grid_1x"
             android:textAppearance="?attr/textAppearanceBody2"
-            app:layout_constraintBottom_toBottomOf="@id/bottomGuideline"
             app:layout_constraintEnd_toEndOf="@id/endGuideline"
             app:layout_constraintStart_toStartOf="@id/startGuideline"
             app:layout_constraintTop_toBottomOf="@id/pictureImage"
@@ -61,6 +60,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:icon="@drawable/ic_call"
+            app:layout_constraintBottom_toBottomOf="@id/bottomGuideline"
             app:layout_constraintStart_toStartOf="@id/startGuideline"
             app:layout_constraintTop_toBottomOf="@id/description"
             tools:text="555-555-5555" />
