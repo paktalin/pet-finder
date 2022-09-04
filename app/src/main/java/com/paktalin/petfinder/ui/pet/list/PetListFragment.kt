@@ -3,6 +3,7 @@ package com.paktalin.petfinder.ui.pet.list
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.widget.Toolbar
+import androidx.core.view.isInvisible
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -43,7 +44,7 @@ class PetListFragment : Fragment(R.layout.pet_list_fragment) {
     private fun onState(state: PetListState) = with(view) {
         Timber.i("onState: $state")
         adapter.submitList(state.pets)
-        progressBar.isVisible = state.isLoadingVisible
+        progressBar.isInvisible = !state.isLoadingVisible
         toolbar.title = state.toolbarText ?: getString(R.string.pet_list_title)
     }
 
