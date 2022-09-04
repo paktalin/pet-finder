@@ -60,7 +60,7 @@ class PetListFragment : Fragment(R.layout.pet_list_fragment) {
     }
 
     private fun navigateToDetails(id: Long) {
-
+        navigate(PetListFragmentDirections.details(id))
     }
 
     private fun navigateToFilters(petTypes: List<String>) {

@@ -14,17 +14,31 @@
         <action
             android:id="@+id/filters"
             app:destination="@id/petFilterDialog" />
+
+        <action
+            android:id="@+id/details"
+            app:destination="@id/petDetailsFragment" />
     </fragment>
 
     <dialog
         android:id="@+id/petFilterDialog"
         android:name="com.paktalin.petfinder.ui.pet.filter.PetFilterDialog"
         android:label="PetFilterDialog"
-        tools:layout="@layout/pet_filter_dialog" >
+        tools:layout="@layout/pet_filter_dialog">
 
         <argument
             android:name="petTypes"
             app:argType="string[]" />
     </dialog>
+
+    <fragment
+        android:id="@+id/petDetailsFragment"
+        android:name="com.paktalin.petfinder.ui.pet.details.PetDetailsFragment"
+        android:label="PetDetailsFragment"
+        tools:layout="@layout/pet_details_fragment" >
+        <argument
+            android:name="id"
+            app:argType="long" />
+    </fragment>
 
 </navigation>

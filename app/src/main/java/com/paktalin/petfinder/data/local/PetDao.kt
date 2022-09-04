@@ -25,4 +25,7 @@ interface PetDao {
 
     @Query("SELECT * FROM PetEntity")
     fun observePets(): Flow<List<PetEntity>>
+
+    @Query("SELECT * FROM PetEntity WHERE id=:id")
+    fun observePet(id: Long): Flow<PetEntity?>
 }
