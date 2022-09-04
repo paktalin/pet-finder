@@ -7,7 +7,8 @@ data class PetDto(
     val id: Long,
     val name: String,
     val description: String?,
-    val primary_photo_cropped: PhotoDto?
+    val primary_photo_cropped: PhotoDto?,
+    val type: String,
 )
 
 @Serializable

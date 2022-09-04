@@ -9,4 +9,5 @@ data class PetEntity(
     val name: String,
     val description: String?,
     val primaryPhotoSmall: String?,
+    val type: String,
 )

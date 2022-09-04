@@ -10,7 +10,8 @@ fun PetsResponseDto.toEntities(): List<PetEntity> {
             id = it.id,
             name = it.name,
             description = it.description,
-            primaryPhotoSmall = it.primary_photo_cropped?.small
+            primaryPhotoSmall = it.primary_photo_cropped?.small,
+            type = it.type,
         )
     }
 }
@@ -22,6 +23,7 @@ fun PetEntity.toModel(): Pet {
         id = id,
         name = name,
         description = description,
-        smallPictureUrl = primaryPhotoSmall
+        smallPictureUrl = primaryPhotoSmall,
+        type = type,
     )
 }

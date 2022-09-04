@@ -4,5 +4,6 @@ data class Pet(
     val id: Long,
     val name: String,
     val description: String?,
-    val smallPictureUrl: String?
+    val smallPictureUrl: String?,
+    val type: String
 )

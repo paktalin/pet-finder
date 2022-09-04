@@ -32,6 +32,7 @@ class PetListViewModel @Inject constructor(
     val action: Flow<PetListAction> = _action.receiveAsFlow()
 
     private var pets: List<Pet> = emptyList()
+    private var filterPetType: String? = null
 
     fun send(event: PetListEvent) {
         Timber.i("send $event")
@@ -70,10 +71,12 @@ class PetListViewModel @Inject constructor(
     }
 
     private fun onFilterSelected(filter: String) {
-        
+        filterPetType = filter
+        modifyState()
     }
 
     private fun modifyState() {
+        val pets = filterPetType?.let { filter -> pets.filter { it.type == filter } } ?: pets
         _state.update { it.copy(pets = pets) }
     }
 }
