@@ -1,79 +1,51 @@
 [versions]
 android-tools-gradle = "7.2.2"
-android-desugar = "1.1.6"
 
 kotlin = "1.7.10"
-kotlinx-coroutines = "1.6.4"
 kotlinx-serialization = "1.3.3"
 
 androidx-annotation = "1.4.0"
 androidx-core = "1.8.0"
-androidx-core-splashscreen = "1.0.0-rc01"
 androidx-appcompat = "1.4.2"
 androidx-activity = "1.5.0"
 androidx-fragment = "1.5.0"
-androidx-lifecycle = "2.5.0"
 androidx-navigation = "2.5.0"
 androidx-datastore = "1.0.0"
 androidx-room = "2.4.2"
 androidx-hilt = "1.0.0"
-androidx-swiperefreshlayout = "1.1.0"
 androidx-recyclerview = "1.2.1"
-androidx-viewpager2 = "1.0.0"
-androidx-paging = "3.1.1"
 androidx-constraintlayout = "2.1.4"
 
 google-hilt = "2.42"
 google-android-material = "1.6.1"
-google-services = "4.3.13"
 
-detekt = "1.21.0"
 jakewharton-timber = "5.0.1"
 jakewharton-retrofitKotlinxConverter = "0.8.0"
 squareup-okhttp = "4.10.0"
 squareup-retrofit = "2.9.0"
 coil = "2.1.0"
-airbnb-lottie = "5.2.0"
-
-[plugins]
-detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt" }
 
 [libraries]
 android-tools-gradle = { module = "com.android.tools.build:gradle", version.ref = "android-tools-gradle" }
-android-tools-desugarJdkLibs = { module = "com.android.tools:desugar_jdk_libs", version.ref = "android-desugar" }
 
-kotlinx-coroutines-android = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "kotlinx-coroutines" }
-kotlinx-coroutines-playServices = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-play-services", version.ref = "kotlinx-coroutines" }
 kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinx-serialization" }
 
-androidx-annotation-annotation = { module = "androidx.annotation:annotation", version.ref = "androidx-annotation" }
 androidx-core-coreKtx = { module = "androidx.core:core-ktx", version.ref = "androidx-core" }
-androidx-core-core-splashscreen = { module = "androidx.core:core-splashscreen", version.ref = "androidx-core-splashscreen" }
 androidx-appcompat = { module = "androidx.appcompat:appcompat", version.ref = "androidx-appcompat" }
-androidx-activityKtx = { module = "androidx.activity:activity-ktx", version.ref = "androidx-activity" }
 androidx-fragmentKtx = { module = "androidx.fragment:fragment-ktx", version.ref = "androidx-fragment" }
-androidx-lifecycle-common-java8 = { module = "androidx.lifecycle:lifecycle-common-java8", version.ref = "androidx-lifecycle" }
-androidx-lifecycle-viewmodelKtx = { module = "androidx.lifecycle:lifecycle-viewmodel-ktx", version.ref = "androidx-lifecycle" }
-androidx-lifecycle-process = { module = "androidx.lifecycle:lifecycle-process", version.ref = "androidx-lifecycle" }
 androidx-navigation-safeArgs-gradle = { module = "androidx.navigation:navigation-safe-args-gradle-plugin", version.ref = "androidx-navigation" }
 androidx-navigation-fragmentKtx = { module = "androidx.navigation:navigation-fragment-ktx", version.ref = "androidx-navigation" }
-androidx-navigation-uiKtx = { module = "androidx.navigation:navigation-ui-ktx", version.ref = "androidx-navigation" }
 androidx-datastore-preferences = { module = "androidx.datastore:datastore-preferences", version.ref = "androidx-datastore" }
 androidx-roomKtx = { module = "androidx.room:room-ktx", version.ref = "androidx-room" }
-androidx-room-paging = { module = "androidx.room:room-paging", version.ref = "androidx-room" }
 androidx-room-compiler = { module = "androidx.room:room-compiler", version.ref = "androidx-room" }
 androidx-hilt-work = { module = "androidx.hilt:hilt-work", version.ref = "androidx-hilt" }
 androidx-hilt-compiler = { module = "androidx.hilt:hilt-compiler", version.ref = "androidx-hilt" }
 androidx-constraintlayout = { module = "androidx.constraintlayout:constraintlayout", version.ref = "androidx-constraintlayout" }
-androidx-swiperefreshlayout = { module = "androidx.swiperefreshlayout:swiperefreshlayout", version.ref = "androidx-swiperefreshlayout" }
 androidx-recyclerview = { module = "androidx.recyclerview:recyclerview", version.ref = "androidx-recyclerview" }
-androidx-viewpager2 = { module = "androidx.viewpager2:viewpager2", version.ref = "androidx-viewpager2" }
-androidx-paging-runtimeKtx = { module = "androidx.paging:paging-runtime-ktx", version.ref = "androidx-paging" }
 
 google-hilt-android = { module = "com.google.dagger:hilt-android", version.ref = "google-hilt" }
 google-hilt-compiler = { module = "com.google.dagger:hilt-android-compiler", version.ref = "google-hilt" }
 google-hilt-gradle = { module = "com.google.dagger:hilt-android-gradle-plugin", version.ref = "google-hilt" }
-google-googleServices = { module = "com.google.gms:google-services", version.ref = "google-services" }
 google-android-material = { module = "com.google.android.material:material", version.ref = "google-android-material" }
 
 jakewharton-timber = { module = "com.jakewharton.timber:timber", version.ref = "jakewharton-timber" }
@@ -84,4 +56,3 @@ squareup-okhttp-loggingInterceptor = { module = "com.squareup.okhttp3:logging-in
 squareup-retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "squareup-retrofit" }
 
 coil = { module = "io.coil-kt:coil", version.ref = "coil" }
-airbnb-lottie = { module = "com.airbnb.android:lottie", version.ref = "airbnb-lottie" }
