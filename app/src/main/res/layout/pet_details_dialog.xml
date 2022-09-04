@@ -8,6 +8,7 @@
     <include layout="@layout/guidelines" />
 
     <ImageView
+        android:contentDescription="@null"
         android:id="@+id/pictureImage"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -24,7 +25,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/grid_1x"
-        android:textAppearance="?attr/textAppearanceHeadline4"
+        android:textAppearance="?attr/textAppearanceHeadline5"
         app:layout_constraintStart_toEndOf="@+id/pictureImage"
         app:layout_constraintTop_toTopOf="@id/topGuideline"
         tools:text="Amelia" />
@@ -38,4 +39,16 @@
         app:layout_constraintStart_toEndOf="@+id/pictureImage"
         app:layout_constraintTop_toBottomOf="@id/name"
         tools:src="@drawable/ic_female" />
+
+    <TextView
+        android:id="@+id/description"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/grid_1x"
+        android:textAppearance="?attr/textAppearanceBody2"
+        app:layout_constraintBottom_toBottomOf="@id/bottomGuideline"
+        app:layout_constraintEnd_toEndOf="@id/endGuideline"
+        app:layout_constraintStart_toStartOf="@id/startGuideline"
+        app:layout_constraintTop_toBottomOf="@id/pictureImage"
+        tools:text="Benji is the only survivor of his litter and needs a friend to play with. He is not very vocal..." />
 </androidx.constraintlayout.widget.ConstraintLayout>

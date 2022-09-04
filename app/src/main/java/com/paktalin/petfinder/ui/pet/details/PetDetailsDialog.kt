@@ -34,6 +34,7 @@ class PetDetailsDialog : BottomSheetDialogFragment() {
             name.text = pet.name
             pictureImage.loadPetPicture(pet.pictureUrl)
             gender.setGenderDrawable(pet.gender)
+            description.text = pet.description
         }
     }
 
