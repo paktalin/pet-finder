@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
@@ -32,11 +33,7 @@ class PetDetailsDialog : BottomSheetDialogFragment() {
         state.pet?.let { pet ->
             name.text = pet.name
             pictureImage.loadPetPicture(pet.pictureUrl)
-            gender.text = when (pet.gender) {
-                Gender.FEMALE -> "Female"
-                Gender.MALE -> "Male"
-                Gender.UNKNOWN -> "Unknown"
-            }
+            gender.setGenderDrawable(pet.gender)
         }
     }
 
@@ -60,4 +57,16 @@ class PetDetailsDialog : BottomSheetDialogFragment() {
     ): View? {
         return inflater.inflate(R.layout.pet_details_dialog, container, false)
     }
+}
+
+private fun ImageView.setGenderDrawable(gender: Gender) {
+    setImageDrawable(
+        context.getDrawable(
+            when (gender) {
+                Gender.FEMALE -> R.drawable.ic_female
+                Gender.MALE -> R.drawable.ic_male
+                Gender.UNKNOWN -> R.drawable.ic_question_mark
+            }
+        )
+    )
 }

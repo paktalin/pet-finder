@@ -7,13 +7,12 @@
 
     <include layout="@layout/guidelines" />
 
-    <com.google.android.material.imageview.ShapeableImageView
+    <ImageView
         android:id="@+id/pictureImage"
         android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:scaleType="centerCrop"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
         app:layout_constraintBottom_toBottomOf="@id/bottomGuideline"
-        app:layout_constraintDimensionRatio="H,1:1"
         app:layout_constraintStart_toStartOf="@id/startGuideline"
         app:layout_constraintTop_toTopOf="@id/topGuideline"
         app:layout_constraintVertical_bias="0.0"
@@ -25,16 +24,18 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/grid_1x"
+        android:textAppearance="?attr/textAppearanceHeadline4"
         app:layout_constraintStart_toEndOf="@+id/pictureImage"
         app:layout_constraintTop_toTopOf="@id/topGuideline"
         tools:text="Amelia" />
 
-    <TextView
+    <ImageView
         android:id="@+id/gender"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/grid_1x"
+        android:layout_marginTop="@dimen/grid_1x"
+        android:contentDescription="@string/pet_gender"
         app:layout_constraintStart_toEndOf="@+id/pictureImage"
         app:layout_constraintTop_toBottomOf="@id/name"
-        tools:text="Female" />
+        tools:src="@drawable/ic_female" />
 </androidx.constraintlayout.widget.ConstraintLayout>
