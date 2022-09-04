@@ -36,6 +36,7 @@ class PetListViewModel @Inject constructor(
     val action: Flow<PetListAction> = _action.receiveAsFlow()
 
     private var pets: List<Pet> = emptyList()
+    private var isLoadingVisible: Boolean = false
     private var filterPetType: String? = null
 
     fun send(event: PetListEvent) {
@@ -53,10 +54,14 @@ class PetListViewModel @Inject constructor(
     }
 
     private fun refreshPets() = viewModelScope.launch {
+        isLoadingVisible = true
+        modifyState()
         when (val result = refreshPetsUseCase()) {
             is RefreshPetsUseCase.Result.Failure -> _action.send(ShowError(result.error))
             RefreshPetsUseCase.Result.Success -> Unit
         }
+        isLoadingVisible = false
+        modifyState()
     }
 
     private fun observePets() = viewModelScope.launch {
@@ -82,6 +87,6 @@ class PetListViewModel @Inject constructor(
 
     private fun modifyState() {
         val pets = filterPetType?.let { filter -> pets.filter { it.type == filter } } ?: pets
-        _state.update { it.copy(pets = pets) }
+        _state.update { it.copy(pets = pets, isLoadingVisible = isLoadingVisible) }
     }
 }
