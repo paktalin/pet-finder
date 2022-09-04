@@ -12,4 +12,4 @@ data class PetDto(
 )
 
 @Serializable
-data class PhotoDto(val small: String)
+data class PhotoDto(val medium: String)

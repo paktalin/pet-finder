@@ -7,11 +7,25 @@
 
     <include layout="@layout/guidelines" />
 
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/pictureImage"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="@id/bottomGuideline"
+        app:layout_constraintDimensionRatio="H,1:1"
+        app:layout_constraintStart_toStartOf="@id/startGuideline"
+        app:layout_constraintTop_toTopOf="@id/topGuideline"
+        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintWidth_percent="0.5"
+        tools:src="@drawable/ic_paw" />
+
     <TextView
         android:id="@+id/name"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="@id/startGuideline"
+        android:layout_marginStart="@dimen/grid_1x"
+        app:layout_constraintStart_toEndOf="@+id/pictureImage"
         app:layout_constraintTop_toTopOf="@id/topGuideline"
         tools:text="Amelia" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -8,6 +8,6 @@ data class PetEntity(
     @PrimaryKey val id: Long,
     val name: String,
     val description: String?,
-    val primaryPhotoSmall: String?,
+    val pictureUrl: String?,
     val type: String,
 )

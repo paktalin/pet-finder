@@ -15,13 +15,15 @@
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/pictureImage"
-            android:layout_width="@dimen/grid_10x"
-            android:layout_height="@dimen/grid_10x"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
             android:scaleType="centerCrop"
             app:layout_constraintBottom_toBottomOf="@id/bottomGuideline"
             app:layout_constraintStart_toStartOf="@id/startGuideline"
             app:layout_constraintTop_toTopOf="@id/topGuideline"
             app:layout_constraintVertical_bias="0.0"
+            app:layout_constraintWidth_percent="0.3"
+            app:layout_constraintDimensionRatio="H,1:1"
             tools:src="@drawable/ic_paw" />
 
         <TextView
