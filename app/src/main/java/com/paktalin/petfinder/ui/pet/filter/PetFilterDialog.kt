@@ -12,6 +12,8 @@ import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.paktalin.petfinder.R
 import com.paktalin.petfinder.databinding.PetFilterDialogBinding
 import com.paktalin.petfinder.model.PetType
+import com.paktalin.petfinder.ui.pet.filter.PetFilterAction.ShowError
+import com.paktalin.petfinder.ui.showError
 import com.paktalin.petfinder.utils.getDestinationResult
 import com.paktalin.petfinder.utils.setDestinationResult
 import com.paktalin.petfinder.utils.viewLifecycle
@@ -39,6 +41,13 @@ class PetFilterDialog : BottomSheetDialogFragment() {
         adapter.submitList(state)
     }
 
+    private fun onAction(action: PetFilterAction) = with(view) {
+        Timber.i("onAction: $action")
+        when (action) {
+            is ShowError -> showError(action.error)
+        }
+    }
+
     private fun onItemClick(type: String) {
         setDestinationResult(RESULT, type)
         dismiss()
@@ -56,6 +65,7 @@ class PetFilterDialog : BottomSheetDialogFragment() {
         super.onViewCreated(view, savedInstanceState)
         setupViews()
         viewModel.state.onEach(::onState).launchIn(viewLifecycleOwner.lifecycleScope)
+        viewModel.action.onEach(::onAction).launchIn(viewLifecycleOwner.lifecycleScope)
     }
 }
 
