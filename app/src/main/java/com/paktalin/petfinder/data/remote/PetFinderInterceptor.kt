@@ -39,8 +39,8 @@ class PetFinderInterceptor @Inject constructor(
     private fun refreshToken(request: Request, chain: Interceptor.Chain): Response {
         val body = FormBody.Builder()
             .add("grant_type", "client_credentials")
-            .add("client_id", "0NjzgAzMc14Gq1AkvypepRSA8q4V5LRAx8EwVFAeRIRiJNoyYS")
-            .add("client_secret", "x7XS0mz8YaA6zfOl03lr8QQJjNfhUAANlwODyTcT")
+            .add("client_id", BuildConfig.CLIENT_ID)
+            .add("client_secret", BuildConfig.CLIENT_SECRET)
             .build()
 
         val refreshTokenRequest = request
