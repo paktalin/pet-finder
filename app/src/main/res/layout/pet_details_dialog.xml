@@ -30,6 +30,7 @@
             android:layout_marginStart="@dimen/grid_1x"
             android:textAppearance="?attr/textAppearanceHeadline5"
             app:layout_constraintStart_toEndOf="@+id/pictureImage"
+            app:layout_constraintEnd_toEndOf="@id/endGuideline"
             app:layout_constraintTop_toTopOf="@id/topGuideline"
             tools:text="Amelia" />
 

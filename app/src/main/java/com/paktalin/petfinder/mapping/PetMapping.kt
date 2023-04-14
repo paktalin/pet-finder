@@ -1,5 +1,6 @@
 package com.paktalin.petfinder.mapping
 
+import androidx.core.text.HtmlCompat
 import com.paktalin.petfinder.data.local.entity.GenderEntity
 import com.paktalin.petfinder.data.local.entity.PetEntity
 import com.paktalin.petfinder.data.remote.dto.GenderDto
@@ -11,8 +12,8 @@ fun PetsResponseDto.toEntities(): List<PetEntity> {
     return animals.map {
         PetEntity(
             id = it.id,
-            name = it.name,
-            description = it.description,
+            name = it.name.stripHtml(),
+            description = it.description?.stripHtml(),
             pictureUrl = it.primary_photo_cropped?.medium,
             type = it.type,
             gender = it.gender.toEntity(),
@@ -47,4 +48,8 @@ fun GenderEntity.toModel() = when (this) {
     GenderEntity.FEMALE -> Gender.FEMALE
     GenderEntity.MALE -> Gender.MALE
     GenderEntity.UNKNOWN -> Gender.UNKNOWN
+}
+
+private fun String.stripHtml(): String {
+    return HtmlCompat.fromHtml(this, HtmlCompat.FROM_HTML_MODE_COMPACT).toString()
 }
