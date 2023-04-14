@@ -17,8 +17,8 @@ android {
         versionCode = 1
         versionName = "1.0"
         buildConfigField("String", "BASE_URL", "\"https://api.petfinder.com/v2/\"")
-        buildConfigField("String", "CLIENT_ID", "\"0NjzgAzMc14Gq1AkvypepRSA8q4V5LRAx8EwVFAeRIRiJNoyYS\"")
-        buildConfigField("String", "CLIENT_SECRET", "\"x7XS0mz8YaA6zfOl03lr8QQJjNfhUAANlwODyTcT\"")
+        buildConfigField("String", "CLIENT_ID", "\"xLfSvSKKAGy7CXj5OpzDAIXUUL8ffzN0nfj3lBQThpYVhINIfP\"")
+        buildConfigField("String", "CLIENT_SECRET", "\"2YERpGf0zZNYMfQy1g8GumFB1JCHO6WFy7L5z9Lm\"")
     }
 
     buildTypes {
